@@ -3,10 +3,8 @@ import global_data as GD
 resource_address = 'C:\\Users\\moonc\\OneDrive\\문서\\GitHub\\2DGP-MaM\\resource\\'
 class Background:
     def __init__(self):
-        if GD.stage_num == 1:
-            self.image = load_image(resource_address + 'stage1_image.png')
-        # elif stage_num == 2:
-        # ...
+        # if GD.stage_num == 1:
+        self.image = load_image(resource_address + 'stage1_image.png')
     def update(self):
         pass
     def draw(self):
