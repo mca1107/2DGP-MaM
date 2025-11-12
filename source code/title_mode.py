@@ -1,7 +1,7 @@
 from pico2d import *
 import game_framework
 import global_data as GD
-import play_mode_stage1
+import play_mode
 
 resource_address = 'C:\\Users\\moonc\\OneDrive\\문서\\GitHub\\2DGP-MaM\\resource\\'
 image = None
