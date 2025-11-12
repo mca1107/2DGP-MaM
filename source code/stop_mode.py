@@ -1,5 +1,5 @@
 from pico2d import *
-import play_mode_stage1
+import play_mode
 import game_framework
 
 image = None
