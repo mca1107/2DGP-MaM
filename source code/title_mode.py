@@ -1,6 +1,8 @@
 from pico2d import *
 import game_framework
+import play_mode_stage1
 
+resource_address = 'C:\\Users\\moonc\\OneDrive\\문서\\GitHub\\2DGP-MaM\\resource\\'
 image = None
 running = True
 def handle_events():
@@ -10,11 +12,11 @@ def handle_events():
             game_framework.quit()
         elif event.type == SDL_KEYDOWN and event.key == SDLK_ESCAPE:
             game_framework.quit()
-        elif ?:
-            game_framework.change_mode(?)
+        elif event.type == SDL_KEYDOWN and event.key == SDLK_SPACE:
+            game_framework.change_mode(play_mode_stage1)
 def init():
     global image, running
-    image = load_image(?)
+    image = load_image(resource_address + 'title_image.png')
 def finish():
     global image
     del image
@@ -22,7 +24,7 @@ def update():
     pass
 def draw():
     clear_canvas()
-    image.draw(960, 540)
+    image.draw(768, 480)
     update_canvas()
 def pause(): pass
 def resume(): pass
