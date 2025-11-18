@@ -4,7 +4,7 @@ resource_address = 'C:\\Users\\moonc\\OneDrive\\문서\\GitHub\\2DGP-MaM\\resour
 class Background:
     def __init__(self):
         # if GD.stage_num == 1:
-        self.image = load_image(resource_address + 'stage1_image.png')
+        self.image = load_image(resource_address + 'stage1\\' + 'background.png')
     def update(self):
         pass
     def draw(self):
