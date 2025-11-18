@@ -1,6 +1,7 @@
 from pico2d import *
 from player import Player
 from background import Background
+from staging import Staging
 import game_framework, game_world
 import stop_mode
 import global_data as GD
@@ -24,6 +25,10 @@ def init():
     global player
     background = Background()
     game_world.add_object(background, 0)
+    stagings = [
+        Staging(768, 30, 1536, 60),
+    ]
+    game_world.add_objects(stagings, 0)
     player = Player()
     game_world.add_object(player, 1)
 def finish():
