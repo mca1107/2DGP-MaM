@@ -26,7 +26,7 @@ def init():
     background = Background()
     game_world.add_object(background, 0)
     stagings = [
-        Staging(768, 30, 1536, 60),
+        Staging(768, 90, 1536, 180),
     ]
     game_world.add_objects(stagings, 0)
     player = Player()
