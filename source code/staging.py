@@ -16,3 +16,6 @@ class Staging:
         draw_rectangle(*self.get_bb())
     def get_bb(self):
         return self.x - self.width // 2, self.y - self.height // 2, self.x + self.width // 2, self.y + self.height // 2
+    def handle_collision(self, group, other):
+        if group == 'player:staging':
+            pass
