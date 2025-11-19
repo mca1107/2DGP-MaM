@@ -4,12 +4,14 @@ def add_object(o, depth = 0):
     world[depth].append(o)
 def add_objects(ol, depth = 0):
     world[depth] += ol
-def remove_collision_object(o):
-    for pairs in collision_pairs.values():
-        if o in pairs[0]:
-            pairs[0].remove(o)
-        if o in pairs[1]:
-            pairs[1].remove(o)
+def add_collision_pair(group, a, b):
+    if group not in collision_pairs:
+        print(f'새로운 그룹 추가: {group}')
+        collision_pairs[group] = [[], []]
+    if a:
+        collision_pairs[group][0].append(a)
+    if b:
+        collision_pairs[group][1].append(b)
 def remove_object(o):
     for layer in world:
         if o in layer:
@@ -17,6 +19,12 @@ def remove_object(o):
             remove_collision_object(o)
             return
     raise ValueError('Cannot delete non existing object')
+def remove_collision_object(o):
+    for pairs in collision_pairs.values():
+        if o in pairs[0]:
+            pairs[0].remove(o)
+        if o in pairs[1]:
+            pairs[1].remove(o)
 def update():
     for layer in world:
         for o in layer:
@@ -36,14 +44,6 @@ def handle_collisions():
                 if collide_rect_to_rect(a, b):
                     a.handle_collision(group, b)
                     b.handle_collision(group, a)
-def add_collision_pair(group, a, b):
-    if group not in collision_pairs:
-        print(f'새로운 그룹 추가: {group}')
-        collision_pairs[group] = [[], []]
-    if a:
-        collision_pairs[group][0].append(a)
-    if b:
-        collision_pairs[group][1].append(b)
 def collide_rect_to_rect(a, b): # 두 사각형 사이의 충돌 검사
     left_a, bottom_a, right_a, top_a = a.get_bb()
     left_b, bottom_b, right_b, top_b = b.get_bb()
