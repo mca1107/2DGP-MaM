@@ -1,1 +1,9 @@
+game_width, game_height = 1536, 960
+game_paused = False
 stage_num = 0
+ability_monster1 = True # orange, double jump
+ability_monster2 = True # blue, defense
+ability_monster3 = True # white, skill1
+ability_monster4 = True # pink, passive
+ability_monster5 = True # black, skill2
+player = None # player 객체
