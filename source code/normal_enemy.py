@@ -93,12 +93,9 @@ class NormalEnemy:
                 NormalEnemy.images['Mushroom_Green'][int(self.frame)].composite_draw(0, 'h', self.x, self.y)
             elif self.type == 'Mushroom_Blue':
                 NormalEnemy.images['Mushroom_Blue'][int(self.frame)].composite_draw(0, 'h', self.x, self.y)
-        draw_rectangle(*self.get_bb())
-        draw_circle(self.x, self.y, int(PIXEL_PER_METER) * 30, 255, 255, 0)
     def get_bb(self):
         if self.type in ('Mushroom_Red', 'Mushroom_Green', 'Mushroom_Blue'):
             return self.x - 40, self.y - 40, self.x + 40, self.y + 40  # 80*80
-        # 기본 바운딩 박스 (타입이 없을 때)
         return self.x - 40, self.y - 40, self.x + 40, self.y + 40
     def handle_collision(self, group, other):
         if group == 'attack:enemy':
