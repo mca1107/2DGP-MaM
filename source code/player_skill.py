@@ -59,7 +59,6 @@ class PlayerSkill:
                 PlayerSkill.images['White'][int(self.frame)].composite_draw(0, 'h', self.x - 60, self.y -30, 160, 80)
             elif self.num == 5:
                 PlayerSkill.images['Black'][int(self.frame)].composite_draw(0, 'h', self.x - 300, self.y + 40, 300, 300)
-        draw_rectangle(*self.get_bb())
     def update(self):
         if self.num == 0:
             if self.frame_num >= FRAMES_PER_ACTION_normal -1:
