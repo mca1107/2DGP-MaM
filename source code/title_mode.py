@@ -13,12 +13,12 @@ def handle_events():
             game_framework.quit()
         elif event.type == SDL_KEYDOWN and event.key == SDLK_ESCAPE:
             game_framework.quit()
-        elif event.type == SDL_KEYDOWN and event.key == SDLK_SPACE:
+        elif event.type == SDL_MOUSEBUTTONDOWN:
             game_framework.change_mode(play_mode)
             GD.stage_num = 1
 def init():
     global image, running
-    image = load_image(resource_address + 'title_image.png')
+    image = load_image(resource_address + "title_image.png")
 def finish():
     global image
     del image
@@ -26,7 +26,7 @@ def update():
     pass
 def draw():
     clear_canvas()
-    image.draw(1536 // 2, 960 // 2)
+    image.draw(GD.game_width // 2, GD.game_height // 2)
     update_canvas()
 def pause(): pass
 def resume(): pass
