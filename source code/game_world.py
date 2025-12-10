@@ -1,4 +1,4 @@
-world = [[], [], []]
+world = [[], [], [], [], [], []] # 0: 배경, 1: 배경 위 오브젝트, 2: 플랫폼, 3: 캐릭터 및 적, 4: 이펙트, 5: UI
 collision_pairs = {} # key: 충돌 종류, value: [a], [b]
 def add_object(o, depth = 0):
     world[depth].append(o)
@@ -51,5 +51,20 @@ def collide_rect_to_rect(a, b): # 두 사각형 사이의 충돌 검사
     if right_a < left_b: return False
     if top_a < bottom_b: return False
     if bottom_a > top_b: return False
+    return True
+def collide_rect_to_line(a, b): # 사각형과 선 사이의 충돌 검사
+    left, bottom, right, top = a.get_bb()
+    x1, y1, x2, y2 = b.get_bb()
+    if left > x2: return False
+    if right < x1: return False
+    if top < y1: return False
+    if bottom > y2: return False
+    return True
+def collide_mouse_to_rect(mx, my, o): # 마우스와 사각형 사이의 충돌 검사
+    left, bottom, right, top = o.get_bb()
+    if left > mx: return False
+    if right < mx: return False
+    if top < my: return False
+    if bottom > my: return False
     return True
 # 다른 종류의 충돌 검사
