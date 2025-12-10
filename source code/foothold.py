@@ -7,8 +7,8 @@ class Staging:
         self.y = y
         self.width = width
         self.height = height
-        if GD.stage_num == 0:
-            self.image = load_image(resource_address + 'stage1\\' + 'staging.png')
+        if GD.stage_num == 0 or GD.stage_num == 1:
+            self.image = load_image(resource_address + "stage1\\" + "staging.png")
     def update(self):
         pass
     def draw(self):
@@ -17,5 +17,17 @@ class Staging:
     def get_bb(self):
         return self.x - self.width // 2, self.y - self.height // 2, self.x + self.width // 2, self.y + self.height // 2
     def handle_collision(self, group, other):
-        if group == 'player:staging':
+        pass
+class Floor:
+    def __init__(self, x1, x2, y):
+        self.x1, self.x2 = x1, x2
+        self.y = y
+    def update(self):
+        pass
+    def draw(self):
+        draw_rectangle(*self.get_bb())
+    def get_bb(self):
+        return self.x1, self.y, self.x2, self.y
+    def handle_collision(self, group, other):
+        if group == 'player:floor':
             pass
