@@ -23,7 +23,6 @@ class Button:
                 Button.images['Pause'][int(self.frame)].draw(self.x, self.y)
             elif self.type == 'Quit':
                 Button.images['Quit'][int(self.frame)].draw(self.x, self.y, 120, 120)
-            draw_rectangle(*self.get_bb())
     def update(self):
         pass
     def get_bb(self):
@@ -56,7 +55,6 @@ class Panel:
                 Panel.images['Info'].draw(self.x, self.y, 500, 500)
             elif self.type == 'Talk':
                 Panel.images['Talk'].draw(self.x, self.y, 500, 500)
-            draw_rectangle(*self.get_bb())
     def update(self):
         pass
     def get_bb(self):
