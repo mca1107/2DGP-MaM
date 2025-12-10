@@ -13,7 +13,6 @@ class Staging:
         pass
     def draw(self):
         self.image.clip_draw(0, 0, 480, 137, self.x, self.y, self.width, self.height)
-        draw_rectangle(*self.get_bb())
     def get_bb(self):
         return self.x - self.width // 2, self.y - self.height // 2, self.x + self.width // 2, self.y + self.height // 2
     def handle_collision(self, group, other):
@@ -25,7 +24,7 @@ class Floor:
     def update(self):
         pass
     def draw(self):
-        draw_rectangle(*self.get_bb())
+        pass
     def get_bb(self):
         return self.x1, self.y, self.x2, self.y
     def handle_collision(self, group, other):
