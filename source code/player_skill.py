@@ -1,6 +1,5 @@
 from pico2d import *
 import game_framework, game_world
-import player
 resource_address = 'C:\\Users\\moonc\\OneDrive\\문서\\GitHub\\2DGP-MaM\\resource\\player\\effect\\'
 
 TIME_PER_ACTION_normal = 0.2
@@ -30,6 +29,14 @@ class PlayerSkill:
         self.y = y
         self.dir = dir
         self.num = skill_num
+        if self.num == 0:
+            self.damage = 1
+        elif self.num == 3:
+            self.damage = 2
+        elif self.num == 5:
+            self.damage = 4
+        else:
+            self.damage = 0
         self.frame = 0
         self.frame_num = 0
         self.load_image()
@@ -102,3 +109,5 @@ class PlayerSkill:
                 return self.x - 140, self.y - 55, self.x + 10, self.y
             elif self.num == 5:
                 return self.x - 400, self.y - 80, self.x - 200, self.y + 120
+    def handle_collision(self, group, other):
+        pass
