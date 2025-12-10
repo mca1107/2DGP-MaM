@@ -95,7 +95,7 @@ class Icon:
                 Icon.images['White'][int(self.frame)].draw(self.x, self.y)
             elif self.num == 4:
                 Icon.images['Pink'][0].draw(self.x, self.y, 70, 70)
-                Icon.images['Pink'][1].draw(self.x, self.y - 60, 70, 70)
+                Icon.images['Pink'][1].draw(self.x, self.y - 62, 70, 70)
             elif self.num == 5:
                 Icon.images['Black'][int(self.frame)].draw(self.x, self.y)
     def update(self):
