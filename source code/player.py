@@ -199,7 +199,6 @@ class Player:
         self.state_machine.handle_state_event(('INPUT', event))
     def draw(self):
         self.state_machine.draw()
-        draw_rectangle(*self.get_bb())
     def get_bb(self):
         if self.face_dir == 1:
             return self.x - 40, self.y - 75, self.x + 20, self.y + 10 # 60*85
